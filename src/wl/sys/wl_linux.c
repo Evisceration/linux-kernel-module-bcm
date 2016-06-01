@@ -156,7 +156,7 @@ static int wl_set_radio_block(void *data, bool blocked);
 static void wl_report_radio_state(wl_info_t *wl);
 #endif
 
-MODULE_LICENSE("MIXED/Proprietary");
+MODULE_LICENSE("GPL");
 
 static struct pci_device_id wl_id_table[] =
 {
