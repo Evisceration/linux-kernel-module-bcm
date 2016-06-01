@@ -43,6 +43,29 @@
 #define EVENT_FLAGS(e) dtoh16((e)->flags)
 #define EVENT_STATUS(e) dtoh32((e)->status)
 
+#define USE_STUPID_HACKS
+#ifdef USE_STUPID_HACKS
+/**
+ * enum ieee80211_band - supported frequency bands
+ *
+ * The bands are assigned this way because the supported
+ * bitrates differ in these bands.
+ *
+ * @IEEE80211_BAND_2GHZ: 2.4GHz ISM band
+ * @IEEE80211_BAND_5GHZ: around 5GHz band (4.9-5.7)
+ * @IEEE80211_BAND_60GHZ: around 60 GHz band (58.32 - 64.80 GHz)
+ * @IEEE80211_NUM_BANDS: number of defined bands
+ */
+enum ieee80211_band {
+    IEEE80211_BAND_2GHZ = NL80211_BAND_2GHZ,
+    IEEE80211_BAND_5GHZ = NL80211_BAND_5GHZ,
+    IEEE80211_BAND_60GHZ = NL80211_BAND_60GHZ,
+
+    /* keep last */
+    IEEE80211_NUM_BANDS
+};
+#endif
+
 #ifdef BCMDBG
 u32 wl_dbg_level = WL_DBG_ERR | WL_DBG_INFO;
 #else
