@@ -147,7 +147,8 @@ endif
 
 EXTRA_LDFLAGS      := $(src)/lib/wlc_hybrid.o_shipped
 
-KBASE              ?= /lib/modules/`uname -r`
+KVER               ?= `uname -r`
+KBASE              ?= /lib/modules/$(KVER)
 KBUILD_DIR         ?= $(KBASE)/build
 MDEST_DIR          ?= $(KBASE)/kernel/drivers/net/wireless
 
